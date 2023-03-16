@@ -3,7 +3,7 @@
 // cube.cpp
 // Implementation file for 2x2x2 Rubik's Cube
 
-#include <cube.h>
+#include "cube.h"
 
 // default constructor - initializes solved Cube
 Cube::Cube() {
