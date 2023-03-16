@@ -15,11 +15,15 @@ Cube::Cube() {
     }
 }
 
-// constructor - initializes cube to given state
-// Each 4 characters represents the colors of a face in the order
-// U F L B R D
-Cube::Cube(const std::string& cube_state) {
-    return;
+// constructor - initializes cube and applies a given scramble
+Cube::Cube(const std::string& scramble) {
+    char colors[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            cube[i][j] = colors[i];
+        }
+    }
+    move(scramble);
 }
 
 // copy constructor
@@ -32,48 +36,44 @@ Cube::Cube(const Cube& c) {
 }
 
 // constructor - creates a scrambled cube
+// UNIMPLEMENTED
 Cube::Cube(bool scramble) {
     return;
 }
 
 // Receives a scramble
-// Returns a cube that has those moves applied to it
-Cube Cube::move(std::string scramble) const {
-    Cube temp();
-    return temp;
+// Applies moves in scramble to cube
+void Cube::move(std::string scramble) {
+    
+    return;
 }
 
-// move functions - returns a cube after applying that move
+// move functions -  applies specified move
 // If clockwise is true, move clockwise. Else counterclockwise.
-Cube Cube::right(bool clockwise) const {
-    Cube temp();
-    return temp;
+void Cube::right(bool clockwise) {
+    return;
 }
 
-Cube Cube::left(bool clockwise) const {
-    Cube temp();
-    return temp;
+void Cube::left(bool clockwise) {
+    return;
 }
 
-Cube Cube::up(bool clockwise) const {
-    Cube temp();
-    return temp;
+void Cube::up(bool clockwise) {
+    return;
 }
 
-Cube Cube::down(bool clockwise) const {
-    Cube temp();
-    return temp;
+void Cube::down(bool clockwise) {
+    return;
 }
 
-Cube Cube::front(bool clockwise) const {
-    Cube temp();
-    return temp;
+void Cube::front(bool clockwise) {
+    return;
 }
 
-Cube Cube::back(bool clockwise) const {
-    Cube temp();
-    return temp;
+void Cube::back(bool clockwise) {
+    return;
 }
+
 // Overload ==
 bool Cube::operator== (const Cube& other) const {
     return equals(other);

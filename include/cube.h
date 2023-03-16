@@ -20,7 +20,7 @@ class Cube {
         // constructor - initializes cube to given state
         // Each 4 characters represents the colors of a face in the order
         // U F L B R D
-        Cube(const std::string& cube_state);
+        Cube(const std::string& scramble);
 
         // copy constructor
         Cube(const Cube& c);
@@ -34,12 +34,12 @@ class Cube {
         
         // move functions - returns a cube after applying that move
         // If clockwise is true, move clockwise. Else counterclockwise.
-        Cube right(bool clockwise) const;
-        Cube left(bool clockwise) const;
-        Cube up(bool clockwise) const;
-        Cube down(bool clockwise) const;
-        Cube front(bool clockwise) const;
-        Cube back(bool clockwise) const;
+        void right(bool clockwise);
+        void left(bool clockwise);
+        void up(bool clockwise);
+        void down(bool clockwise);
+        void front(bool clockwise);
+        void back(bool clockwise);
 
         // Overload ==
         bool operator== (const Cube& other) const;
