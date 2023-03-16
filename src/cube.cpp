@@ -13,7 +13,7 @@ Cube::Cube() {
 // constructor - initializes cube to given state
 // Each 4 characters represents the colors of a face in the order
 // U F L B R D
-Cube::Cube(std::string cube_state) {
+Cube::Cube(const std::string& cube_state) {
     return;
 }
 
@@ -70,14 +70,14 @@ bool Cube::operator== (const Cube& other) const {
     return equals(other);
 }
 
-bool Cube::operator== (const Cube& other) const {
+bool Cube::operator!= (const Cube& other) const {
     return !(equals(other));
 }
 
 bool Cube::equals(const Cube& other) const {
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
-            if (cube[i][j] !+ other.cube[i][j]) {
+            if (cube[i][j] != other.cube[i][j]) {
                 return false;
             }
         }

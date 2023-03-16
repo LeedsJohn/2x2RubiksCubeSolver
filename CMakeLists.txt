@@ -3,7 +3,8 @@ project(2x2RubiksCubeSolver)
 
 include_directories(include)
 file(GLOB SOURCES "src/*.cpp")
+file(GLOB TESTS "tests/*.cpp")
 
-message(HI THIS IS JOHN "${SOURCES}")
+# add_executable(Cube ${SOURCES})
 
-add_executable(Cube ${SOURCES})
+add_executable(Test ${SOURCES} ${TESTS})
