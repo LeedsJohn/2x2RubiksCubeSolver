@@ -7,7 +7,12 @@
 
 // default constructor - initializes solved Cube
 Cube::Cube() {
-    return;
+    char colors[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            cube[i][j] = colors[i];
+        }
+    }
 }
 
 // constructor - initializes cube to given state
