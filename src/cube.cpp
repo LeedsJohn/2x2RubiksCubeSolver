@@ -66,7 +66,15 @@ Cube Cube::back(bool clockwise) const {
     return temp;
 }
 // Overload ==
-bool operator== (const Cube& other) const {
+bool Cube::operator== (const Cube& other) const {
+    return equals(other);
+}
+
+bool Cube::operator== (const Cube& other) const {
+    return !(equals(other));
+}
+
+bool Cube::equals(const Cube& other) const {
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
             if (cube[i][j] !+ other.cube[i][j]) {

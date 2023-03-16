@@ -44,5 +44,11 @@ class Cube {
         // Overload ==
         bool operator== (const Cube& other) const;
 
+        // Overload !=
+        bool operator!= (const Cube& other) const;
+
+    private:
+        bool equals(const Cube& other) const;
+
 };
 #endif
