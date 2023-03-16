@@ -3,6 +3,8 @@
 // cube.h
 // Header file for 2x2x2 Rubik's Cube
 
+#ifndef CUBE_HDR
+#define CUBE_HDR
 #include <string>
 
 class Cube {
@@ -38,3 +40,4 @@ class Cube {
         // Holds the state of the cube
         // Each array holds 4 characters representing a color (WGOBRY)
         char cube[6][4];
+};
