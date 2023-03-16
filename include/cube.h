@@ -9,13 +9,18 @@
 
 class Cube {
     public:
+        // Holds the state of the cube
+        // Each array holds 4 characters representing a color (WGOBRY)
+        // Note - eventually make this private, overload bracket operator
+        char cube[6][4];
+
         // default constructor - initializes solved Cube
         Cube();
 
         // constructor - initializes cube to given state
         // Each 4 characters represents the colors of a face in the order
         // U F L B R D
-        Cube(std::string cube_state);
+        Cube(const std::string& cube_state);
 
         // copy constructor
         Cube(const Cube& c);
@@ -36,9 +41,8 @@ class Cube {
         Cube front(bool clockwise) const;
         Cube back(bool clockwise) const;
 
-    private:
-        // Holds the state of the cube
-        // Each array holds 4 characters representing a color (WGOBRY)
-        char cube[6][4];
+        // Overload ==
+        bool operator== (const Cube& other) const;
+
 };
 #endif

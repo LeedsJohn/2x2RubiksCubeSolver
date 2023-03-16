@@ -45,19 +45,34 @@ Cube Cube::left(bool clockwise) const {
     Cube temp();
     return temp;
 }
+
 Cube Cube::up(bool clockwise) const {
     Cube temp();
     return temp;
 }
+
 Cube Cube::down(bool clockwise) const {
     Cube temp();
     return temp;
 }
+
 Cube Cube::front(bool clockwise) const {
     Cube temp();
     return temp;
 }
+
 Cube Cube::back(bool clockwise) const {
     Cube temp();
     return temp;
+}
+// Overload ==
+bool operator== (const Cube& other) const {
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (cube[i][j] !+ other.cube[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
