@@ -3,7 +3,7 @@
 // cube.cpp
 // Implementation file for 2x2x2 Rubik's Cube
 
-#include <include/cube.h>
+#include <cube.h>
 
 // default constructor - initializes solved Cube
 Cube::Cube() {
@@ -29,28 +29,35 @@ Cube::Cube(bool scramble) {
 
 // Receives a scramble
 // Returns a cube that has those moves applied to it
-Cube::Cube move(std::string scramble) const {
-    return;
+Cube Cube::move(std::string scramble) const {
+    Cube temp();
+    return temp;
 }
 
 // move functions - returns a cube after applying that move
 // If clockwise is true, move clockwise. Else counterclockwise.
-Cube::Cube right(bool clockwise) const {
-    return;
+Cube Cube::right(bool clockwise) const {
+    Cube temp();
+    return temp;
 }
 
-Cube::Cube left(bool clockwise) const {
-    return;
+Cube Cube::left(bool clockwise) const {
+    Cube temp();
+    return temp;
 }
-Cube::Cube up(bool clockwise) const {
-    return;
+Cube Cube::up(bool clockwise) const {
+    Cube temp();
+    return temp;
 }
-Cube::Cube down(bool clockwise) const {
-    return;
+Cube Cube::down(bool clockwise) const {
+    Cube temp();
+    return temp;
 }
-Cube::Cube front(bool clockwise) const {
-    return;
+Cube Cube::front(bool clockwise) const {
+    Cube temp();
+    return temp;
 }
-Cube::Cube back(bool clockwise) const {
-    return;
+Cube Cube::back(bool clockwise) const {
+    Cube temp();
+    return temp;
 }

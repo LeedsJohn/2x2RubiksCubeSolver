@@ -41,3 +41,4 @@ class Cube {
         // Each array holds 4 characters representing a color (WGOBRY)
         char cube[6][4];
 };
+#endif
