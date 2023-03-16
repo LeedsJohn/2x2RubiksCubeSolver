@@ -24,7 +24,11 @@ Cube::Cube(const std::string& cube_state) {
 
 // copy constructor
 Cube::Cube(const Cube& c) {
-    return;
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            cube[i][j] = c.cube[i][j];
+        }
+    }
 }
 
 // constructor - creates a scrambled cube
