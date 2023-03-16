@@ -1,3 +1,7 @@
+# ignore build files other than CMakeLists.txt
+build/*
+!build/CMakeLists.txt
+
 # Prerequisites
 *.d
 
