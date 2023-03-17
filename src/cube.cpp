@@ -7,7 +7,12 @@
 
 // Converts a color to its index
 // WGOBRY -> 012345
-int col_index(char color) {
+int color_index(char color) {
+    for (int i = 0; i < 6; i++) {
+        if (COLORS[i] == color) {
+            return i;
+        }
+    }
     return -1;
 }
 
@@ -15,6 +20,16 @@ int col_index(char color) {
 // Used for getting the correct rotation pattern
 // RUFLDB -> 0 2 4 6 8 10 12 (prime moves are odd, so R' -> 1 etc)
 int move_index(const std::string& move) {
+    char first = move.at(0);
+    int add = 0;
+    if (move.length() > 1 && move.at(1) == '\'') {
+        add++;
+    }
+    for (int i = 0; i < 6; i++) {
+        if (MOVES[i] == first) {
+            return i * 2 + add;
+        }
+    }
     return -1;
 }
 

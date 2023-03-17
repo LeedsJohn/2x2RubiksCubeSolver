@@ -9,7 +9,7 @@
 
 // Converts a color to its index
 // WGOBRY -> 012345
-int col_index(char color);
+int color_index(char color);
 
 // Converts a move to its move index
 // Used for getting the correct rotation pattern
