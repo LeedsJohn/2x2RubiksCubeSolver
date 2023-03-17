@@ -4,6 +4,7 @@
 // Implementation file for 2x2x2 Rubik's Cube
 
 #include "cube.h"
+#include <iostream> // REMOVE THIS
 
 char COLORS[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
 
@@ -15,8 +16,8 @@ int MOVE_PATTERNS[12][13] =
     {0, 1, 5, 3, 1, 1, 1, 3, 2, 2, 2, 0, 4}, // R'
     {1, 2, 3, 4, 0, 0, 0, 0, 1, 1, 1, 1, 0}, // U
     {1, 4, 3, 2, 0, 0, 0, 0, 1, 1, 1, 1, 0}, // U'
-    {0, 4, 5, 2, 2, 4, 0, 1, 3, 0, 1, 2, 1}, // F
-    {0, 2, 5, 4, 2, 1, 0, 4, 3, 2, 1, 0, 1}, // F'
+    {0, 4, 5, 2, 2, 3, 0, 1, 3, 0, 1, 2, 1}, // F
+    {0, 2, 5, 4, 2, 1, 0, 3, 3, 2, 1, 0, 1}, // F'
     {0, 1, 5, 3, 0, 0, 0, 2, 3, 3, 3, 1, 2}, // L
     {0, 3, 5, 1, 0, 2, 0, 0, 3, 1, 3, 3, 2}, // L'
     {1, 4, 3, 2, 2, 2, 2, 2, 3, 3, 3, 3, 5}, // D
@@ -63,7 +64,7 @@ Cube::Cube() {
 }
 
 // constructor - initializes cube and applies a given scramble
-Cube::Cube(const std::string& scramble) {
+Cube::Cube(std::string scramble) {
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
             cube[i][j] = COLORS[i];
@@ -149,7 +150,7 @@ void Cube::rotate(const std::string& move) {
     int* pattern = MOVE_PATTERNS[rotate_index];
     char temp = cube[pattern[3]][pattern[7]];
     for (int i = 3; i > 0; i--) {
-        cube[pattern[i]][pattern[4 + i]] = cube[pattern[i - 1]][pattern[4 + i]];
+        cube[pattern[i]][pattern[4 + i]] = cube[pattern[i - 1]][pattern[3 + i]];
     }
     cube[pattern[0]][pattern[4]] = temp;
 

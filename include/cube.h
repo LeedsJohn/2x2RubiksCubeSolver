@@ -31,7 +31,7 @@ class Cube {
         // constructor - initializes cube to given state
         // Each 4 characters represents the colors of a face in the order
         // U F L B R D
-        Cube(const std::string& scramble);
+        Cube(std::string scramble);
 
         // copy constructor
         Cube(const Cube& c);
