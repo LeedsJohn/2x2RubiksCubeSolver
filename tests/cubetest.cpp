@@ -29,6 +29,10 @@ int main() {
         if (c1 != c2) {
             std::cout << "Failed copy constructor test\n";
         }
+        for (int i = 0; i < 6; i++) {
+            std::cout << c1.cube[i][0] << ' ' << c1.cube[i][1] << '\n' <<
+                c1.cube[i][2] << ' ' << c1.cube[i][3] << "\n\n";
+        }
     }
     std::cout << "--------\n";
 }

@@ -5,6 +5,26 @@
 
 #include "cube.h"
 
+char COLORS[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
+
+char MOVES[6] = {'R', 'U', 'F', 'L', 'D', 'B'};
+
+int MOVE_PATTERNS[12][13] =
+{
+    {0, 3, 5, 1, 1, 3, 1, 1, 2, 0, 2, 2, 4}, // R
+    {0, 1, 5, 3, 1, 1, 1, 3, 2, 2, 2, 0, 4}, // R'
+    {1, 2, 3, 4, 0, 0, 0, 0, 1, 1, 1, 1, 0}, // U
+    {1, 4, 3, 2, 0, 0, 0, 0, 1, 1, 1, 1, 0}, // U'
+    {0, 4, 5, 2, 2, 4, 0, 1, 3, 0, 1, 2, 1}, // F
+    {0, 2, 5, 4, 2, 1, 0, 4, 3, 2, 1, 0, 1}, // F'
+    {0, 1, 5, 3, 0, 0, 0, 2, 3, 3, 3, 1, 2}, // L
+    {0, 3, 5, 1, 0, 2, 0, 0, 3, 1, 3, 3, 2}, // L'
+    {1, 4, 3, 2, 2, 2, 2, 2, 3, 3, 3, 3, 5}, // D
+    {1, 2, 3, 4, 2, 2, 2, 2, 3, 3, 3, 3, 5}, // D'
+    {0, 2, 5, 4, 0, 3, 2, 1, 1, 0, 3, 2, 3}, // B
+    {0, 4, 5, 2, 0, 1, 2, 3, 1, 2, 3, 0, 3} // B'
+};
+
 // Converts a color to its index
 // WGOBRY -> 012345
 int color_index(char color) {
@@ -35,20 +55,18 @@ int move_index(const std::string& move) {
 
 // default constructor - initializes solved Cube
 Cube::Cube() {
-    char colors[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
-            cube[i][j] = colors[i];
+            cube[i][j] = COLORS[i];
         }
     }
 }
 
 // constructor - initializes cube and applies a given scramble
 Cube::Cube(const std::string& scramble) {
-    char colors[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
-            cube[i][j] = colors[i];
+            cube[i][j] = COLORS[i];
         }
     }
     move(scramble);
@@ -72,7 +90,7 @@ Cube::Cube(bool scramble) {
 // Receives a scramble
 // Applies moves in scramble to cube
 void Cube::move(const std::string& scramble) {
-    std::vector<std::string>> moves = parse_scramble(scramble);
+    std::vector<std::string> moves = parse_scramble(scramble);
     for (std::string m : moves) {
         rotate(m);
     }
@@ -99,16 +117,16 @@ bool Cube::equals(const Cube& other) const {
 }
 
 // Receives a scramble and returns a vector of each individual move
-std::vector<std::string>> Cube::parse_scramble(const std::string& scramble) const {
+std::vector<std::string> Cube::parse_scramble(const std::string& scramble) const {
     size_t n = scramble.length();
     std::string valid_moves = "RUFLDB";
-    std::vector<std::string>> res;
+    std::vector<std::string> res;
     for (size_t i = 0; i < n; i++) {
         char cur = scramble.at(i);
         if (valid_moves.find(cur) == std::string::npos) {
             continue; // ignore all characters that aren't RUFLDB
         }
-        std::string cur_move == std::string(cur);
+        std::string cur_move(1, cur);
         if (i + 1 == n) {
             res.push_back(cur_move);
         } else if (scramble.at(i + 1) == '\'') {
@@ -117,7 +135,7 @@ std::vector<std::string>> Cube::parse_scramble(const std::string& scramble) cons
         } else {
             res.push_back(cur_move);
             if (scramble.at(i + 1) == '2') {
-                res.push_back(cur_move)
+                res.push_back(cur_move);
             }
         }
     }

@@ -17,25 +17,6 @@ int color_index(char color);
 // RUFLDB -> 0 2 4 6 8 10 12 (prime moves are odd, so R' -> 1 etc)
 int move_index(const std::string& move);
 
-char COLORS[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
-
-char MOVES[6] = {'R', 'U', 'F', 'L', 'D', 'B'};
-
-int MOVE_PATTERNS[12][13] =
-{
-    {0, 3, 5, 1, 1, 3, 1, 1, 2, 0, 2, 2, 4}, // R
-    {0, 1, 5, 3, 1, 1, 1, 3, 2, 2, 2, 0, 4}, // R'
-    {1, 2, 3, 4, 0, 0, 0, 0, 1, 1, 1, 1, 0}, // U
-    {1, 4, 3, 2, 0, 0, 0, 0, 1, 1, 1, 1, 0}, // U'
-    {0, 4, 5, 2, 2, 4, 0, 1, 3, 0, 1, 2, 1}, // F
-    {0, 2, 5, 4, 2, 1, 0, 4, 3, 2, 1, 0, 1}, // F'
-    {0, 1, 5, 3, 0, 0, 0, 2, 3, 3, 3, 1, 2}, // L
-    {0, 3, 5, 1, 0, 2, 0, 0, 3, 1, 3, 3, 2}, // L'
-    {1, 4, 3, 2, 2, 2, 2, 2, 3, 3, 3, 3, 5}, // D
-    {1, 2, 3, 4, 2, 2, 2, 2, 3, 3, 3, 3, 5}, // D'
-    {0, 2, 5, 4, 0, 3, 2, 1, 1, 0, 3, 2, 3}, // B
-    {0, 4, 5, 2, 0, 1, 2, 3, 1, 2, 3, 0, 3} // B'
-}
 
 class Cube {
     public:
@@ -59,8 +40,8 @@ class Cube {
         Cube(bool scramble);
 
         // Receives a scramble
-        // Returns a cube that has those moves applied to it
-        Cube move(const std::string& scramble);
+        // Applies moves in scramble to cube
+        void move(const std::string& scramble);
 
         // Receives the move (R, U, R', U', etc.)
         // Applies the rotation to the cube.
@@ -76,7 +57,7 @@ class Cube {
         bool equals(const Cube& other) const;
 
         // Receives a scramble and returns a vector of each individual move
-        std::vector<std::string>> parse_scramble(const std::string& scramble) const;
+        std::vector<std::string> parse_scramble(const std::string& scramble) const;
         
 };
 #endif
