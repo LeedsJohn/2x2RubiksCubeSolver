@@ -71,8 +71,11 @@ Cube::Cube(bool scramble) {
 
 // Receives a scramble
 // Applies moves in scramble to cube
-void Cube::move(std::string scramble) {
-    return;
+void Cube::move(const std::string& scramble) {
+    std::vector<std::string>> moves = parse_scramble(scramble);
+    for (std::string m : moves) {
+        rotate(m);
+    }
 }
 
 // Overload ==

@@ -60,7 +60,11 @@ class Cube {
 
         // Receives a scramble
         // Returns a cube that has those moves applied to it
-        Cube move(std::string scramble) const;
+        Cube move(const std::string& scramble);
+
+        // Receives the move (R, U, R', U', etc.)
+        // Applies the rotation to the cube.
+        void rotate(const std::string& move);
 
         // Overload ==
         bool operator== (const Cube& other) const;
@@ -74,8 +78,5 @@ class Cube {
         // Receives a scramble and returns a vector of each individual move
         std::vector<std::string>> parse_scramble(const std::string& scramble) const;
         
-        // Receives the move (R, U, R', U', etc.)
-        // Applies the rotation to the cube.
-        void rotate(const std::string& move);
 };
 #endif
