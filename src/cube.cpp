@@ -72,33 +72,6 @@ Cube::Cube(bool scramble) {
 // Receives a scramble
 // Applies moves in scramble to cube
 void Cube::move(std::string scramble) {
-
-    return;
-}
-
-// move functions -  applies specified move
-// If clockwise is true, move clockwise. Else counterclockwise.
-void Cube::right(bool clockwise) {
-    return;
-}
-
-void Cube::left(bool clockwise) {
-    return;
-}
-
-void Cube::up(bool clockwise) {
-    return;
-}
-
-void Cube::down(bool clockwise) {
-    return;
-}
-
-void Cube::front(bool clockwise) {
-    return;
-}
-
-void Cube::back(bool clockwise) {
     return;
 }
 
@@ -122,9 +95,10 @@ bool Cube::equals(const Cube& other) const {
     return true;
 }
 
-// Receives the index of the move
+// Receives the move (R, U, R', U', etc.)
 // Applies the rotation to the cube.
-void Cube::rotate(int rotate_index) {
+void Cube::rotate(const std::string& move) {
+    int rotate_index = move_index(move);
     int* pattern = MOVE_PATTERNS[rotate_index];
     char temp = cube[pattern[3]][pattern[7]];
     for (int i = 3; i > 0; i--) {

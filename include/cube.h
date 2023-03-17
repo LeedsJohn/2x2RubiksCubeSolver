@@ -60,15 +60,6 @@ class Cube {
         // Receives a scramble
         // Returns a cube that has those moves applied to it
         Cube move(std::string scramble) const;
-        
-        // move functions - returns a cube after applying that move
-        // If clockwise is true, move clockwise. Else counterclockwise.
-        void right(bool clockwise);
-        void left(bool clockwise);
-        void up(bool clockwise);
-        void down(bool clockwise);
-        void front(bool clockwise);
-        void back(bool clockwise);
 
         // Overload ==
         bool operator== (const Cube& other) const;
@@ -79,9 +70,8 @@ class Cube {
     private:
         bool equals(const Cube& other) const;
         
-        // Receives the index of the move
+        // Receives the move (R, U, R', U', etc.)
         // Applies the rotation to the cube.
-        void rotate(int rotate_index);
-
+        void rotate(const std::string& move);
 };
 #endif
