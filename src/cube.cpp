@@ -125,6 +125,23 @@ bool Cube::equals(const Cube& other) const {
 // Receives the index of the move
 // Applies the rotation to the cube.
 void Cube::rotate(int rotate_index) {
-    return;
-}
+    int* pattern = MOVE_PATTERNS[rotate_index];
+    char temp = cube[pattern[3]][pattern[7]];
+    for (int i = 3; i > 0; i--) {
+        cube[pattern[i]][pattern[4 + i]] = cube[pattern[i - 1]][pattern[4 + i]];
+    }
+    cube[pattern[0]][pattern[4]] = temp;
 
+    temp = cube[pattern[3]][pattern[11]];
+    for (int i = 3; i > 0; i--) {
+        cube[pattern[i]][pattern[8 + i]] = cube[pattern[i - 1]][pattern[7 + i]];
+    }
+    cube[pattern[0]][pattern[8]] = temp;
+    
+    int rotate_face = pattern[12];
+    temp = cube[rotate_face][3];
+    for (int i = 3; i > 0; i--) {
+        cube[rotate_face][i] = cube[rotate_face][i - 1];
+    }
+    cube[rotate_face][0] = temp;
+}
