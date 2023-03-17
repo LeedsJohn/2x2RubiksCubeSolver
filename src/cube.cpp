@@ -5,6 +5,19 @@
 
 #include "cube.h"
 
+// Converts a color to its index
+// WGOBRY -> 012345
+int col_index(char color) {
+    return -1;
+}
+
+// Converts a move to its move index
+// Used for getting the correct rotation pattern
+// RUFLDB -> 0 2 4 6 8 10 12 (prime moves are odd, so R' -> 1 etc)
+int move_index(const std::string& move) {
+    return -1;
+}
+
 // default constructor - initializes solved Cube
 Cube::Cube() {
     char colors[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
@@ -44,7 +57,7 @@ Cube::Cube(bool scramble) {
 // Receives a scramble
 // Applies moves in scramble to cube
 void Cube::move(std::string scramble) {
-    
+
     return;
 }
 
@@ -93,3 +106,10 @@ bool Cube::equals(const Cube& other) const {
     }
     return true;
 }
+
+// Receives the index of the move
+// Applies the rotation to the cube.
+void Cube::rotate(int rotate_index) {
+    return;
+}
+
