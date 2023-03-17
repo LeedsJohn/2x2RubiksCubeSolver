@@ -161,9 +161,17 @@ void Cube::rotate(const std::string& move) {
     cube[pattern[0]][pattern[8]] = temp;
 
     int rotate_face = pattern[12];
-    temp = cube[rotate_face][3];
-    for (int i = 3; i > 0; i--) {
-        cube[rotate_face][i] = cube[rotate_face][i - 1];
+    if (rotate_index % 2 == 0) {
+        temp = cube[rotate_face][3];
+        for (int i = 3; i > 0; i--) {
+            cube[rotate_face][i] = cube[rotate_face][i - 1];
+        }
+        cube[rotate_face][0] = temp;
+        return;
     }
-    cube[rotate_face][0] = temp;
+    temp = cube[rotate_face][0];
+    for (int i = 0; i < 3; i++) {
+        cube[rotate_face][i] = cube[rotate_face][i + 1];
+    }
+    cube[rotate_face][3] = temp;
 }
