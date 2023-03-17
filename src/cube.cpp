@@ -95,6 +95,32 @@ bool Cube::equals(const Cube& other) const {
     return true;
 }
 
+// Receives a scramble and returns a vector of each individual move
+std::vector<std::string>> Cube::parse_scramble(const std::string& scramble) const {
+    size_t n = scramble.length();
+    std::string valid_moves = "RUFLDB";
+    std::vector<std::string>> res;
+    for (size_t i = 0; i < n; i++) {
+        char cur = scramble.at(i);
+        if (valid_moves.find(cur) == std::string::npos) {
+            continue; // ignore all characters that aren't RUFLDB
+        }
+        std::string cur_move == std::string(cur);
+        if (i + 1 == n) {
+            res.push_back(cur_move);
+        } else if (scramble.at(i + 1) == '\'') {
+            cur_move.append("'");
+            res.push_back(cur_move);
+        } else {
+            res.push_back(cur_move);
+            if (scramble.at(i + 1) == '2') {
+                res.push_back(cur_move)
+            }
+        }
+    }
+    return res;
+}
+
 // Receives the move (R, U, R', U', etc.)
 // Applies the rotation to the cube.
 void Cube::rotate(const std::string& move) {
@@ -111,7 +137,7 @@ void Cube::rotate(const std::string& move) {
         cube[pattern[i]][pattern[8 + i]] = cube[pattern[i - 1]][pattern[7 + i]];
     }
     cube[pattern[0]][pattern[8]] = temp;
-    
+
     int rotate_face = pattern[12];
     temp = cube[rotate_face][3];
     for (int i = 3; i > 0; i--) {

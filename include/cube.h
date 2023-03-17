@@ -6,6 +6,7 @@
 #ifndef CUBE_HDR
 #define CUBE_HDR
 #include <string>
+#include <vector>
 
 // Converts a color to its index
 // WGOBRY -> 012345
@@ -69,6 +70,9 @@ class Cube {
 
     private:
         bool equals(const Cube& other) const;
+
+        // Receives a scramble and returns a vector of each individual move
+        std::vector<std::string>> parse_scramble(const std::string& scramble) const;
         
         // Receives the move (R, U, R', U', etc.)
         // Applies the rotation to the cube.
