@@ -18,9 +18,9 @@ int move_index(const std::string& move);
 
 char COLORS[6] = {'W', 'G', 'O', 'B', 'R', 'Y'};
 
-char MOVES[6] = {"R", "U", "F", "L", "D", "B"};
+char MOVES[6] = {'R', 'U', 'F', 'L', 'D', 'B'};
 
-int MOVE_PATTERNS[12][8] =
+int MOVE_PATTERNS[12][13] =
 {
     {0, 3, 5, 1, 1, 3, 1, 1, 2, 0, 2, 2, 4}, // R
     {0, 1, 5, 3, 1, 1, 1, 3, 2, 2, 2, 0, 4}, // R'
